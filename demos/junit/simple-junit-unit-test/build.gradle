@@ -1,0 +1,34 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.1'
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+jar {
+	baseName = 'junit5-gradle-junit-demo'
+	version = '1.0.0-SNAPSHOT'
+}
+
+compileTestJava {
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+}
+
+
+dependencies {
+	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
+	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+}
+
